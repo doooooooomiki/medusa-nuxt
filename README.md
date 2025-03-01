@@ -11,7 +11,7 @@ git clone git@github.com:doooooooomiki/medusa-nuxt.git
 ### Medusa
 
 ```bash
-cd medusa
+cd apps/medusa
 
 # Create the .env file
 cp .env.template .env
@@ -20,7 +20,7 @@ cp .env.template .env
 yarn
 
 # Spin up the database and Redis
-docker-compose up -d
+docker compose up -d
 
 # Build the project
 yarn build
