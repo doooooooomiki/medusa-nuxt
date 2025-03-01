@@ -1,4 +1,11 @@
 {
   "name": "medusa-nuxt",
-  "packageManager": "yarn@4.6.0"
+  "private": true,
+  "packageManager": "yarn@4.6.0",
+  "workspaces": [
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=20"
+  }
 }
