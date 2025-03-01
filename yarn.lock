@@ -15823,13 +15823,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "nuxt-app@workspace:apps/nuxt"
   dependencies:
-    nuxt: "npm:^3.15.4"
+    nuxt: "npm:3.15.4"
     vue: "npm:latest"
     vue-router: "npm:latest"
   languageName: unknown
   linkType: soft
 
-"nuxt@npm:^3.15.4":
+"nuxt@npm:3.15.4":
   version: 3.15.4
   resolution: "nuxt@npm:3.15.4"
   dependencies:
