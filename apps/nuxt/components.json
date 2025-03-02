@@ -12,7 +12,7 @@
   "aliases": {
     "components": "@@/layers/ui/components",
     "composables": "@@/layers/ui/composables",
-    "utils": "@@/layers/ui/utils",
+    "utils": "@@/layers/ui/utils/utils",
     "ui": "@@/layers/ui/components",
     "lib": "@@/layers/ui/utils"
   },
