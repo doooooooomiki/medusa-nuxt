@@ -4,7 +4,7 @@
   "typescript": true,
   "tailwind": {
     "config": "tailwind.config.js",
-    "css": "assets/css/tailwind.css",
+    "css": "app/assets/css/tailwind.css",
     "baseColor": "zinc",
     "cssVariables": true,
     "prefix": ""
@@ -13,7 +13,7 @@
     "components": "@/components",
     "composables": "@/composables",
     "utils": "@/utils/utils",
-    "ui": "@/components",
+    "ui": "@/components/ui",
     "lib": "@/utils"
   },
   "iconLibrary": "lucide"

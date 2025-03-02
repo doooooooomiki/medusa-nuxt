@@ -8,7 +8,9 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
 
-  extends: ["../ui"],
+  modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt"],
 
-  modules: ["@nuxtjs/tailwindcss"],
+  shadcn: {
+    componentDir: "./app/components/ui",
+  },
 });
