@@ -8,9 +8,16 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
 
-  modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt"],
+  modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt", "@nuxtjs/i18n"],
 
   shadcn: {
     componentDir: "./app/components/ui",
+  },
+
+  i18n: {
+    vueI18n: "./i18n.config.ts",
+    locales: ["en", "fr", "uk"],
+    defaultLocale: "uk",
+    strategy: "prefix",
   },
 });
