@@ -21,6 +21,7 @@
     "shadcn-nuxt": "1.0.2",
     "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7",
+    "valibot": "^1.0.0-rc.3",
     "vue": "latest",
     "vue-router": "latest"
   },

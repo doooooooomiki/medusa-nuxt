@@ -4,11 +4,6 @@ import { useToast } from "@/components/ui/toast/use-toast";
 
 const { toast } = useToast();
 const { t } = useI18n();
-
-const { data } = await useFetch("/api/products");
-const products = data?.value?.products;
-
-console.info({ products });
 </script>
 
 <template>
