@@ -14,4 +14,16 @@ module.exports = defineConfig({
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     },
   },
+  modules: [
+    {
+      resolve: "./src/modules/keycrm-linkings",
+    },
+    {
+      resolve: "./src/modules/keycrm",
+      options: {
+        keycrmApiKey: process.env.KEYCRM_API_KEY,
+        keycrmApiBaseUrl: process.env.KEYCRM_API_BASE_URL,
+      },
+    },
+  ],
 });
