@@ -3302,7 +3302,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@medusajs/js-sdk@npm:^2.5.1":
+"@medusajs/js-sdk@npm:^2.0.1, @medusajs/js-sdk@npm:^2.5.1":
   version: 2.5.1
   resolution: "@medusajs/js-sdk@npm:2.5.1"
   dependencies:
@@ -3695,7 +3695,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@medusajs/types@npm:^2.5.0, @medusajs/types@npm:^2.5.1":
+"@medusajs/types@npm:^2.0.1, @medusajs/types@npm:^2.5.0, @medusajs/types@npm:^2.5.1":
   version: 2.5.1
   resolution: "@medusajs/types@npm:2.5.1"
   dependencies:
@@ -4203,7 +4203,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/kit@npm:3.15.4, @nuxt/kit@npm:^3.15.0, @nuxt/kit@npm:^3.15.1, @nuxt/kit@npm:^3.15.4":
+"@nuxt/kit@npm:3.15.4, @nuxt/kit@npm:^3.15.0, @nuxt/kit@npm:^3.15.1, @nuxt/kit@npm:^3.15.4, @nuxt/kit@npm:^3.8.0":
   version: 3.15.4
   resolution: "@nuxt/kit@npm:3.15.4"
   dependencies:
@@ -4335,6 +4335,18 @@ __metadata:
     vue-i18n: "npm:^10.0.5"
     vue-router: "npm:^4.5.0"
   checksum: 10c0/2a29aad61f8717c6f92f4794b727ba09dc7ff58bcd0fa28dc4a539d6be671da58d177eaf5c214e123a1330e4590812e5d7b925d7b3c9d2eaf3b47d625062a3f5
+  languageName: node
+  linkType: hard
+
+"@nuxtjs/medusa@npm:1.0.0":
+  version: 1.0.0
+  resolution: "@nuxtjs/medusa@npm:1.0.0"
+  dependencies:
+    "@medusajs/js-sdk": "npm:^2.0.1"
+    "@medusajs/types": "npm:^2.0.1"
+    "@nuxt/kit": "npm:^3.8.0"
+    defu: "npm:^6.1.2"
+  checksum: 10c0/0558ef31f0619e30ed59e71f0aadc994adc02bc423d166fd05a1d0d1b3ef943ae9d61e49ddcd923a33b98e806c91112001c59b15bcd0866992fff9c0bf28c1f3
   languageName: node
   linkType: hard
 
@@ -16556,6 +16568,7 @@ __metadata:
   resolution: "nuxt-app@workspace:apps/nuxt"
   dependencies:
     "@nuxtjs/i18n": "npm:9.2.1"
+    "@nuxtjs/medusa": "npm:1.0.0"
     "@nuxtjs/tailwindcss": "npm:^6.13.1"
     class-variance-authority: "npm:^0.7.1"
     clsx: "npm:^2.1.1"

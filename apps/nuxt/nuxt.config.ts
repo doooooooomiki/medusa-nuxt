@@ -8,7 +8,12 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
 
-  modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt", "@nuxtjs/i18n"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "shadcn-nuxt",
+    "@nuxtjs/i18n",
+    "@nuxtjs/medusa",
+  ],
 
   shadcn: {
     componentDir: "./app/components/ui",
@@ -19,5 +24,10 @@ export default defineNuxtConfig({
     locales: ["en", "fr", "uk"],
     defaultLocale: "uk",
     strategy: "prefix",
+  },
+
+  medusa: {
+    server: true,
+    publishableKey: process.env.MEDUSA_PUBLISHABLE_KEY,
   },
 });
