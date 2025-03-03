@@ -40,10 +40,12 @@ export const getKeycrmProductWorkflow = createWorkflow(
       }
     );
 
-    const product = getKeycrmProductStep({ id: linking.keycrm_product_id });
+    const product = getKeycrmProductStep({
+      product_id: linking.keycrm_product_id,
+    });
 
     const offers = when(product, (product) => product.has_offers).then(() => {
-      return getKeycrmOffersStep(product.id);
+      return getKeycrmOffersStep({ product_id: product.id });
     });
 
     const productWithOffers = transform({ product, offers }, (data) => {
