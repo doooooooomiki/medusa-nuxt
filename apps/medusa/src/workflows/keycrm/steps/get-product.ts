@@ -5,10 +5,10 @@ import KeycrmModuleService from "../../../modules/keycrm/service";
 
 export const getKeycrmProductStep = createStep(
   "get-keycrm-product-step",
-  async (input: { id: number }, { container }) => {
+  async (input: { product_id: number }, { container }) => {
     const keycrmService: KeycrmModuleService = container.resolve(KEYCRM_MODULE);
 
-    const product = await keycrmService.getProduct(input.id);
+    const product = await keycrmService.getProduct(input.product_id);
 
     if (!product) {
       throw new MedusaError(MedusaError.Types.INVALID_DATA, "no product");
