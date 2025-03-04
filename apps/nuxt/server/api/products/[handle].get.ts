@@ -19,7 +19,7 @@ export default eventHandler(async (event) => {
     if (products.length !== 1) {
       throw createError({
         statusCode: 404,
-        statusMessage: "Page Not Found",
+        statusMessage: "Page Not Found...",
       });
     }
 
