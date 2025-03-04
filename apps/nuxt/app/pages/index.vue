@@ -4,8 +4,12 @@ const { t } = useI18n();
 
 <template>
   <div>
-    <NuxtLinkLocale to="/ui">{{ t("ui") }}</NuxtLinkLocale>
-    <NuxtRouteAnnouncer />
+    <div>
+      <NuxtLinkLocale to="/ui">{{ t("ui") }}</NuxtLinkLocale>
+    </div>
+    <div>
+      <NuxtLinkLocale to="/products">{{ t("products") }}</NuxtLinkLocale>
+    </div>
     <NuxtWelcome />
   </div>
 </template>

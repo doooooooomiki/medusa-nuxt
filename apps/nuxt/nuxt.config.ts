@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     "shadcn-nuxt",
     "@nuxtjs/i18n",
     "@nuxtjs/medusa",
+    "@nuxtjs/seo",
   ],
 
   shadcn: {
