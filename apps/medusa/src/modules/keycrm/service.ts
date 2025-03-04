@@ -22,6 +22,16 @@ export default class KeycrmModuleService {
     return await this.$fetch(`products/${product_id}`);
   }
 
+  async getProducts({ limit = 15, page = 1, filter = {} }) {
+    return await this.$fetch(`products`, {
+      query: {
+        limit,
+        page,
+        filter,
+      },
+    });
+  }
+
   async getOffers(product_id: number) {
     const { data: offers } = await this.$fetch(`offers`, {
       query: {
