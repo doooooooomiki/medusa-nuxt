@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { t } = useI18n();
 const route = useRoute();
 
 const { data: product, error } = await useFetch<any>(
@@ -14,5 +15,6 @@ if (error.value) {
 </script>
 
 <template>
+  <NuxtLinkLocale to="/">{{ t("welcome") }}</NuxtLinkLocale>
   {{ product }}
 </template>
