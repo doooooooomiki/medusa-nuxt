@@ -17,7 +17,7 @@ export const getKeycrmProductWorkflow = createWorkflow(
       });
     });
 
-    when(products, (products) => products).then(() => {
+    when("when-products", products, (products) => products).then(() => {
       return new WorkflowResponse({
         products,
       });

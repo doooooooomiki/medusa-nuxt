@@ -11,8 +11,8 @@ const { t } = useI18n();
       <NuxtLinkLocale to="/products">{{ t("products") }}</NuxtLinkLocale>
     </div>
     <div>
-      <NuxtLinkLocale to="/products/the-democracy-manifest-sticker-pack">
-        {{ "the-democracy-manifest-sticker-pack" }}
+      <NuxtLinkLocale to="/products/as-purr-my-last-email-t-shirt">
+        {{ "as-purr-my-last-email-t-shirt" }}
       </NuxtLinkLocale>
     </div>
   </div>
