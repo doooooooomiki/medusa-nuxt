@@ -16,9 +16,6 @@ module.exports = defineConfig({
   },
   modules: [
     {
-      resolve: "./src/modules/keycrm-linkings",
-    },
-    {
       resolve: "./src/modules/keycrm",
       options: {
         keycrmApiKey: process.env.KEYCRM_API_KEY,
