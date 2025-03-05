@@ -18,7 +18,7 @@ export default class KeycrmModuleService {
     });
   }
 
-  async getProduct(product_id: number) {
+  async getProduct(product_id: string) {
     return await this.$fetch(`products/${product_id}`);
   }
 

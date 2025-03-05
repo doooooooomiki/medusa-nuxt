@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { t } = useI18n();
 const route = useRoute();
 const handle = computed(() => route.params.handle as string);
 
@@ -14,5 +15,6 @@ if (error.value) {
 </script>
 
 <template>
+  <NuxtLinkLocale to="/">{{ t("welcome") }}</NuxtLinkLocale>
   {{ product }}
 </template>

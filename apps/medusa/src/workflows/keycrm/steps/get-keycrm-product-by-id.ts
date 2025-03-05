@@ -3,9 +3,16 @@ import { MedusaError } from "@medusajs/framework/utils";
 import { KEYCRM_MODULE } from "../../../modules/keycrm";
 import KeycrmModuleService from "../../../modules/keycrm/service";
 
-export const getKeycrmProductStep = createStep(
-  "get-keycrm-product-step",
-  async (input: { product_id: number }, { container }) => {
+export const getKeycrmProductByIdStep = createStep(
+  "get-keycrm-product-by-id-step",
+  async (input: { product_id: string }, { container }) => {
+    if (!input.product_id) {
+      throw new MedusaError(
+        MedusaError.Types.INVALID_DATA,
+        `No valid product ID for keycrm product provided. Given Product ID is '${input.product_id}'`
+      );
+    }
+
     const keycrmService: KeycrmModuleService = container.resolve(KEYCRM_MODULE);
 
     const product = await keycrmService.getProduct(input.product_id);
