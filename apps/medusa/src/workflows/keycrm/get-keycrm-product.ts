@@ -9,7 +9,7 @@ import { getKeycrmOffersByProductIdStep } from "./steps/get-keycrm-offers-by-pro
 import { getMedusaProductByHandleStep } from "./steps/get-medusa-product-by-handle";
 
 export const getKeycrmProductWorkflow = createWorkflow(
-  "get-keycrm-product-by-idworkflow",
+  "get-keycrm-product-by-id-workflow",
   (input: { handle: string }) => {
     const medusaProduct = getMedusaProductByHandleStep({
       handle: input.handle,
