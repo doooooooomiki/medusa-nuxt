@@ -32,7 +32,8 @@
     "@mikro-orm/postgresql": "6.4.3",
     "awilix": "^8.0.1",
     "ofetch": "^1.4.1",
-    "pg": "^8.13.0"
+    "pg": "^8.13.0",
+    "slugify": "^1.6.6"
   },
   "devDependencies": {
     "@medusajs/test-utils": "2.5.0",

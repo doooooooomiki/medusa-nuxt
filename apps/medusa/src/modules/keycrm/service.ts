@@ -42,4 +42,9 @@ export default class KeycrmModuleService {
 
     return offers;
   }
+
+  async getCategories() {
+    const { data: categories } = await this.$fetch("products/categories", {});
+    return categories;
+  }
 }
