@@ -9,7 +9,7 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
       },
     });
 
-    return res.status(200).json({ products: [result.productWithOffers] });
+    return res.status(200).json({ products: [result.products] });
   } else {
     // TODO: get products paginated
   }

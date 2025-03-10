@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/toast/use-toast";
 
 const { toast } = useToast();
@@ -17,7 +16,7 @@ const { t } = useI18n();
   <div>
     <SwitchLocalePathLink locale="uk">українська мова</SwitchLocalePathLink>
   </div>
-  <Button
+  <UiButton
     @click="
       () => {
         toast({
@@ -28,5 +27,5 @@ const { t } = useI18n();
     "
   >
     Add to calendar
-  </Button>
+  </UiButton>
 </template>

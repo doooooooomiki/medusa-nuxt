@@ -37,6 +37,7 @@ export default class KeycrmModuleService {
       query: {
         "filter[product_id]": product_id,
         limit: 50,
+        include: "product",
       },
     });
 
