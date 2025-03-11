@@ -35,8 +35,9 @@ export default class KeycrmModuleService {
   async getOffers(product_id: number) {
     const { data: offers } = await this.$fetch(`offers`, {
       query: {
-        "filter[product_id]": product_id,
+        sort: "id",
         limit: 50,
+        "filter[product_id]": product_id,
       },
     });
 

@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { toTypedSchema } from "@vee-validate/valibot";
-import * as v from "valibot";
-
 const { t } = useI18n();
 const route = useRoute();
 const handle = computed(() => route.params.handle as string);
@@ -18,17 +15,6 @@ if (error.value) {
 
 const variants = computed(() => product.value.offers);
 const options = computed(() => product.value.properties);
-const productSizes = computed(() => options.value.size);
-
-const formSchema = toTypedSchema(
-  v.object({
-    size: v.string("sheesh"),
-  })
-);
-
-const onSubmit = (values: any) => {
-  console.log("Form submitted!", values);
-};
 </script>
 
 <template>
@@ -37,37 +23,31 @@ const onSubmit = (values: any) => {
     <h1>{{ product.name }}</h1>
   </section>
 
-  <NuxtLinkLocale to="/products/hooray-for-boobies-t-shirt">
-    {{ "hooray-for-boobies-t-shirt" }}
-  </NuxtLinkLocale>
+  <div>
+    <NuxtLinkLocale to="/products/hooray-for-boobies-t-shirt">
+      {{ "hooray-for-boobies-t-shirt" }}
+    </NuxtLinkLocale>
+  </div>
+  <div>
+    <NuxtLinkLocale to="/products/the-pickles-t-shirt">
+      {{ "the-pickles-t-shirt" }}
+    </NuxtLinkLocale>
+  </div>
+  <div>
+    <NuxtLinkLocale to="/products/as-purr-my-last-email-t-shirt">
+      {{ "as-purr-my-last-email-t-shirt" }}
+    </NuxtLinkLocale>
+  </div>
+  <div>
+    <NuxtLinkLocale to="/products/him-t-shirt">
+      {{ "him-t-shirt" }}
+    </NuxtLinkLocale>
+  </div>
+  <div>
+    <NuxtLinkLocale to="/products/this-is-democracy-manifest-t-shirt">
+      {{ "this-is-democracy-manifest-t-shirt" }}
+    </NuxtLinkLocale>
+  </div>
 
-  <UiForm
-    :validation-schema="formSchema"
-    @submit="onSubmit"
-    v-slot="{ values }"
-  >
-    <UiFormField v-slot="{ componentField }" type="radio" name="size">
-      <UiFormItem class="space-y-3">
-        <UiFormLabel>Sizes</UiFormLabel>
-        <UiFormControl>
-          <UiRadioGroup class="flex flex-col space-y-1" v-bind="componentField">
-            <UiFormItem
-              v-for="size in productSizes"
-              class="flex items-center space-y-0 gap-x-3"
-            >
-              <UiFormControl>
-                <UiRadioGroupItem :value="size" />
-              </UiFormControl>
-              <UiFormLabel class="font-normal"> {{ size }} </UiFormLabel>
-            </UiFormItem>
-          </UiRadioGroup>
-        </UiFormControl>
-        <UiFormMessage />
-      </UiFormItem>
-    </UiFormField>
-
-    <UiButton type="submit"> Submit </UiButton>
-
-    <pre> {{ values }} </pre>
-  </UiForm>
+  <ProductForm :product="product" :variants="variants" :options="options" />
 </template>
