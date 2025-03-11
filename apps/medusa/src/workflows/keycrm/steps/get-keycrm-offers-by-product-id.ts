@@ -24,20 +24,6 @@ export const getKeycrmOffersByProductIdStep = createStep(
       );
     }
 
-    if (!offers.at(0).product) {
-      throw new MedusaError(
-        MedusaError.Types.INVALID_DATA,
-        `First offer does not include product`
-      );
-    }
-
-    if (!offers.at(0).product.properties_agg) {
-      throw new MedusaError(
-        MedusaError.Types.INVALID_DATA,
-        `First offer's product does not provide properties_agg`
-      );
-    }
-
     return new StepResponse(offers);
   }
 );
