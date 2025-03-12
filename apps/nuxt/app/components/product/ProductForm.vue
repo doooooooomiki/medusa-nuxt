@@ -12,46 +12,21 @@ const route = useRoute();
 const router = useRouter();
 const variantQuery = computed(() => route.query.variant as string);
 
-const initialVariant = ref<any | undefined>();
-const currentVariant = ref<any | undefined>();
-
 const selectedSize = ref("");
 const selectedColor = ref("");
 
-const sizes = computed(() => {
-  if (props.options.length === 0) return [];
+const initialVariant = ref<any | undefined>();
 
-  const sizes = props.options.find(
-    (option: { name: string }) => option.name === "size"
-  );
-
-  if (!sizes) return [];
-
-  return sizes.values;
-});
-
-const colors = computed(() => {
-  if (props.options.length === 0) return [];
-
-  const colors = props.options.find(
-    (option: { name: string }) => option.name === "color"
-  );
-
-  if (!colors) return [];
-
-  return colors.values;
-});
-
-const formSchema = toTypedSchema(
-  v.object({
-    size: v.string("sheesh"),
-    color: v.string("sheesh"),
-  })
+const currentVariant = computed(() =>
+  props.variants.find((variant) =>
+    variant.properties.every(
+      ({ name, value }: { name: string; value: string }) => {
+        if (name === "size") return value === selectedSize.value;
+        if (name === "color") return value === selectedColor.value;
+      }
+    )
+  )
 );
-
-const onSubmit = (values: any) => {
-  console.log("Form submitted!", values);
-};
 
 const setVariantId = (variant: any | undefined) => {
   const query = { ...route.query };
@@ -63,6 +38,41 @@ const setVariantId = (variant: any | undefined) => {
   }
 
   router.replace({ query });
+};
+
+watch(currentVariant, (newVariant) => {
+  setVariantId(newVariant);
+});
+
+const sizes = computed(() => {
+  if (props.options.length === 0) return [];
+
+  const sizes = props.options.find(
+    (option: { name: string }) => option.name === "size"
+  );
+
+  return !sizes ? [] : sizes.values;
+});
+
+const colors = computed(() => {
+  if (props.options.length === 0) return [];
+
+  const colors = props.options.find(
+    (option: { name: string }) => option.name === "color"
+  );
+
+  return !colors ? [] : colors.values;
+});
+
+const formSchema = toTypedSchema(
+  v.object({
+    size: v.string("sheesh"),
+    color: v.string("sheesh"),
+  })
+);
+
+const onSubmit = (values: any) => {
+  console.log("Form submitted!", values);
 };
 
 onMounted(() => {
@@ -117,7 +127,5 @@ onMounted(() => {
     />
 
     <UiButton type="submit"> Submit </UiButton>
-
-    <pre> {{ values }} </pre>
   </UiForm>
 </template>
