@@ -32,6 +32,15 @@ export default class KeycrmModuleService {
     });
   }
 
+  async getOffer(offer_id: string) {
+    return await this.$fetch(`offers`, {
+      query: {
+        "filter[id]": offer_id,
+        include: "product",
+      },
+    });
+  }
+
   async getOffers(product_id: number) {
     const { data: offers } = await this.$fetch(`offers`, {
       query: {
@@ -42,6 +51,14 @@ export default class KeycrmModuleService {
     });
 
     return offers;
+  }
+
+  async getOffersStockData(offer_id: string) {
+    return await this.$fetch(`offers/stocks`, {
+      query: {
+        "filter[offers_id]": offer_id,
+      },
+    });
   }
 
   async getCategories() {

@@ -6,7 +6,7 @@ export default eventHandler(async (event) => {
 
   const handle = getRouterParam(event, "handle");
 
-  const HandleSchema = v.undefinedable(v.string());
+  const HandleSchema = v.undefinedable(v.string()); // Todo: slug action?
 
   const handleValidated = v.safeParse(HandleSchema, handle);
 

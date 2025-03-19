@@ -20,7 +20,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-vue-next": "^0.477.0",
-    "nuxt": "3.15.4",
+    "nuxt": "^3.16.0",
     "reka-ui": "^2.0.2",
     "shadcn-nuxt": "1.0.2",
     "tailwind-merge": "^3.0.2",
@@ -32,6 +32,7 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^6.13.1"
+    "@nuxtjs/tailwindcss": "^6.13.1",
+    "unenv": "^1.10.0"
   }
 }
