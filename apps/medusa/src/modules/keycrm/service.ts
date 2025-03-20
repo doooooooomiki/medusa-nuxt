@@ -53,10 +53,19 @@ export default class KeycrmModuleService {
     return offers;
   }
 
-  async getOffersStockData(offer_id: string) {
+  async getOffersStockData(offers_id: string) {
     return await this.$fetch(`offers/stocks`, {
       query: {
-        "filter[offers_id]": offer_id,
+        "filter[offers_id]": offers_id,
+      },
+    });
+  }
+
+  async getOffersStocksData(offers_id: string[]) {
+    return await this.$fetch(`offers/stocks`, {
+      query: {
+        limit: 50,
+        "filter[offers_id]": offers_id.join(),
       },
     });
   }

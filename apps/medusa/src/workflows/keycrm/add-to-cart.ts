@@ -20,6 +20,7 @@ import { validateVariantPriceStep } from "./steps/validate-variant-price";
 import { validateLineItemPriceStep } from "./steps/validate-line-item-price";
 import { prepareLineItemDataStep } from "./steps/prepare-line-item-data";
 import { confirmInventoryStep } from "./steps/confirm-inventory";
+import { getKeycrmOffersStocksStep } from "./steps/get-keycrm-offers-stocks";
 import { isDefined } from "@medusajs/framework/utils";
 
 export interface AddToCartWorkflowInputDTO {
@@ -55,9 +56,9 @@ export const addToCartWorkflow = createWorkflow(
       (data) => data.input.item.variant_id
     );
 
-    const variant = when({ variantId }, ({ variantId }) => {
-      return Boolean(variantId);
-    }).then(() => {
+    const variant = when({ variantId }, ({ variantId }) =>
+      Boolean(variantId)
+    ).then(() => {
       return getKeycrmOfferByIdStep({
         offer_id: variantId,
       });
@@ -103,8 +104,14 @@ export const addToCartWorkflow = createWorkflow(
       }
     );
 
+    const inventoryData = getKeycrmOffersStocksStep({ offers_id: [variantId] });
+
+    const inventory = transform({ inventoryData }, ({ inventoryData }) => {
+      return inventoryData.at(0);
+    });
+
     confirmInventoryStep({
-      offer_id: variantId,
+      inventory,
       items: itemsToConfirmInventory,
     });
 
@@ -126,6 +133,7 @@ export const addToCartWorkflow = createWorkflow(
       }
     );
 
+    // TODO: make own
     refreshCartItemsWorkflow.runAsStep({
       input: { cart_id: cart.id, items: allItems },
     });
